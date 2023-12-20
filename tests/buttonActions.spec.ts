@@ -14,7 +14,7 @@ async function navigateAndClick(page: any, subCategoryText: string, buttonText: 
     const doubleClickBtn = page.getByText('Double Click Me');
     await doubleClickBtn.click({ clickCount: 2 });
     const doubleClickMessage = page.getByText('You have done a double click');
-    await doubleClickMessage.waitFor({ state: 'visible' });
+    await expect(doubleClickMessage).toBeVisible();
   });
   
   test('Right Click', async ({ page }) => {
@@ -22,7 +22,7 @@ async function navigateAndClick(page: any, subCategoryText: string, buttonText: 
     const rightClickBtn = page.getByText('Right Click Me');
     await rightClickBtn.click({ button: 'right' });
     const rightClickMessage = page.getByText('You have done a right click');
-    await rightClickMessage.waitFor({ state: 'visible' });
+    await expect(rightClickMessage).toBeVisible();
   });
   
   test('Click Me', async ({ page }) => {
@@ -30,6 +30,6 @@ async function navigateAndClick(page: any, subCategoryText: string, buttonText: 
     const clickBtn = page.locator('.btn-primary').last();
     await clickBtn.click();
     const clickMessage = page.locator('[id="dynamicClickMessage"]');
-    await clickMessage.waitFor({ state: 'visible' });
+    await expect(clickMessage).toBeVisible();
   });
   
