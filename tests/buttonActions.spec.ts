@@ -19,7 +19,7 @@ test('Click Me Test', async ({ page }) => {
   const subCategoryText = 'Buttons';
   const buttonText = 'lastBtn';     
 
-  await pageObject.navigateAndClickButtons(subCategoryText, buttonText);
+  await pageObject.navigateAndClick(subCategoryText, buttonText);
   await pageObject.clickPrimaryButton();
 
   const isMessageVisible = await pageObject.isClickMessageVisible();
