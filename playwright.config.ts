@@ -1,6 +1,6 @@
 
 import { defineConfig, devices } from '@playwright/test';
-
+require('dotenv').config()
 export default defineConfig({
   testDir: './tests',
   fullyParallel: false,
@@ -14,7 +14,7 @@ export default defineConfig({
   // globalTeardown: 'globalTearDown.ts',
   use: {
     trace: 'on',
-    baseURL: 'https://demoqa.com/',
+    baseURL: process.env.BASE_URL
   },
   projects: [
 
