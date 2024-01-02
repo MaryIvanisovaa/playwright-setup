@@ -10,8 +10,8 @@ export default defineConfig({
   reporter: [['html', { open: 'never' }]],
   globalTimeout: 1800000,
   grepInvert: /@regression/,
-  globalSetup: 'globalSetup.ts',
-  globalTeardown: 'globalTearDown.ts',
+  // globalSetup: 'globalSetup.ts',
+  // globalTeardown: 'globalTearDown.ts',
   use: {
     trace: 'on',
     baseURL: 'https://demoqa.com/',
@@ -19,25 +19,25 @@ export default defineConfig({
   projects: [
 
 
-  {
-    name: 'setup',
-    testMatch: '**/setup/*.config.ts',
-    use: {
-      viewport: {
-        height: 1600,
-        width: 700
-      }
-    }
-  },
+  // {
+  //   name: 'setup',
+  //   testMatch: '**/setup/*.config.ts',
+  //   use: {
+  //     viewport: {
+  //       height: 1600,
+  //       width: 700
+  //     }
+  //   }
+  // },
   {
     name: 'chromium',
     use: { ...devices['Desktop Chrome'] },
-    dependencies: ['setup'],
+    // dependencies: ['setup'],
   },
-  {
-    name: 'firefox',
-    use: { ...devices['Desktop Firefox'] },
-  },
+//   {
+//     name: 'firefox',
+//     use: { ...devices['Desktop Firefox'] },
+//   },
 ],
 
 
