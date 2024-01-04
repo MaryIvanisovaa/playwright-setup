@@ -1,27 +1,19 @@
-import { test } from '@playwright/test';
-import { ElementsPage, ClickMeObj} from '../pages/elementsPage'; // Импортируем класс
 
-
-test('Double Click', async ({ page }) => {
-  const elementsPage = new ElementsPage(page);
+import { test } from '../src/fixtures/base_fixture';
+test('Double Click', async ({ elementsPage}) => {
   await elementsPage.performDoubleClick();
-});
 
-test('Right Click', async ({ page }) => {
-  const elementsPage = new ElementsPage(page);
+});
+test('Right Click', async ({ elementsPage }) => {
   await elementsPage.performRightClick();
 });
-
-
-test('Click Me Test', async ({ page }) => {
-  const pageObject = new ClickMeObj(page);
-
+test('Click Me Test', async ({ clickMe}) => {
   const subCategoryText = 'Buttons';
   const buttonText = 'lastBtn';     
 
-  await pageObject.navigateAndClick(subCategoryText, buttonText);
-  await pageObject.clickPrimaryButton();
+  await clickMe.navigateAndClick(subCategoryText, buttonText);
+  await clickMe.clickPrimaryButton();
 
-  const isMessageVisible = await pageObject.isClickMessageVisible();
+  const isMessageVisible = await clickMe.isClickMessageVisible();
 
 });

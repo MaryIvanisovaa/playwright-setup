@@ -1,11 +1,9 @@
-import { test } from '@playwright/test';
-import { MainPage } from '../pages/basePage';
+import { test } from "../src/fixtures/base_fixture";
 
-test('Check initial state', async ({ page }) => {
-  const mainPage = new MainPage(page);
-
-  await mainPage.navigateToHomePage();
-  await mainPage.checkInitialState();
+test('Check initial state', async ({ initialStateMainPage }) => {
+  await initialStateMainPage.navigateToHomePage();
+  await initialStateMainPage.getByText;
+  await initialStateMainPage.checkInitialState();
 });
 
   

@@ -23,19 +23,23 @@ export class LoginPage {
     return await this.page.locator(`text=${text}`);
   }
 
-  async fillLoginAndPassword(): Promise<void> {
+  async login(): Promise<void> {
     await (await this.page.locator(this.loginField)).click();
     await (await this.page.locator(this.loginField)).fill(this.userName);
     await (await this.page.locator(this.passwordField)).click();
     await (await this.page.locator(this.passwordField)).fill(this.password);
     await (await this.page.locator(this.LoginButton)).click({force: true});
-  }
-
-  async loginSuccessCheck(): Promise<void> {
     await this.page.waitForSelector(this.LogOutButton, { state: 'visible' });
     await this.page.waitForSelector(this.searchField, { state: 'visible'});
-
   }
+
+  // async loginSuccessCheck(): Promise<void> {
+  //   await this.page.waitForSelector(this.LogOutButton, { state: 'visible' });
+  //   await this.page.waitForSelector(this.searchField, { state: 'visible'});
+
+  // }
+
+  
 }
 
 

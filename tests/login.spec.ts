@@ -1,10 +1,6 @@
-import { test } from '@playwright/test';
-import { LoginPage } from '../pages/loginPage';
+import { test } from '../src/fixtures/base_fixture';
+test('Check login', async ({login}) => {
+  await login.navigateToPage();
+  await login.login();
 
-test.only('Check login', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-
-  await loginPage.navigateToPage();
-  await loginPage.fillLoginAndPassword();
-  await loginPage.loginSuccessCheck();
 });
