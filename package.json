@@ -21,9 +21,13 @@
   "homepage": "https://github.com/MaryIvanisovaa/playwright-setup#readme",
   "devDependencies": {
     "@playwright/test": "^1.40.1",
-    "@types/node": "^20.10.4"
+    "@types/node": "^20.10.4",
+    "axios": "^1.6.5",
+    "dotenv": "^16.3.1",
+    "prettier": "^3.1.1"
   },
   "dependencies": {
-    "dotenv": "^16.3.1"
+    "axios-cookiejar-support": "^4.0.7",
+    "tough-cookie": "^4.1.3"
   }
 }
