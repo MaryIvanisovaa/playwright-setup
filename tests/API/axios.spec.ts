@@ -1,14 +1,13 @@
 import axios, { Axios } from 'axios';
 import { wrapper } from 'axios-cookiejar-support';
-import test from 'playwright/test';
+import test, { expect } from 'playwright/test';
 import { CookieJar } from 'tough-cookie';
 
 test.describe.only('Mocking response', async () => {
      let client: Axios;
      let userID: string;
      let token: string;
-     let bookID: string;
-     let addedISBN: string | undefined;
+    
      
   test.beforeAll(async ({}) => {
     const jar = new CookieJar();
@@ -27,7 +26,6 @@ test.describe.only('Mocking response', async () => {
     });
     userID = loginData.data.userId
     token = loginData.data.token
-    bookID = loginData.data.collectionOfIsbns
     console.log(loginData.data.userId);
     console.log(loginData.data.token);
   
@@ -46,31 +44,24 @@ test.describe.only('Mocking response', async () => {
     });
   
     console.log(response);
+    expect(response.status).toBeGreaterThanOrEqual(200);
+
 
       });
 
-      // test('Delete book', async()=>{
-      //   const response = await client.delete('BookStore/v1/Book', {
-      //     "userId": userID,
-      //     "collectionOfIsbns": [
-      //       {
-      //         "isbn": "9781449331818"
-      //       }
-      //     ]
-      //   });
-      test('Delete a book', async ({}) => {
-     
-        let bookIdToDelete = '9781449325862';
-        let userIDForDelete = 'bef0c084-b01b-47a7-a71d-704cb0a0b342'
-    
-        const responseDelete = await client.delete(`BookStore/v1/Book?isbn=${bookIdToDelete}&userId=${userIDForDelete}`
-        );
-      
+      test('Delete book', async()=>{
+        const responseDelete = await client.delete('BookStore/v1/Book', {
+        data:{
+          "isbn": "9781449331818",
+          "userId": userID
+        }
+        });
+
         console.log(responseDelete);
-    });
+        expect(responseDelete.status).toBeGreaterThanOrEqual(200);
+    })
     
-      })
-    // });
+      });
 
 
 
