@@ -1,6 +1,6 @@
 import {APIRequestContext, test as base, request} from '@playwright/test';
 import { LoginPage } from '../../pages/loginPage';
-import { BasePage, ClickMeObj, ElementsPage } from '../../pages/elementsPage';
+import { ClickMeObj, ElementsPage } from '../../pages/elementsPage';
 import { MainPage } from '../../pages/basePage';
 import {BookStorePage} from  '../../pages/bookStorePage'
 import { ProfilePage } from '../../pages/profilePage';
@@ -12,8 +12,6 @@ type MyFixture ={
     initialStateMainPage: MainPage;
     bookStorePage: BookStorePage;
     profilePage: ProfilePage;  
-    userApiRequest: APIRequestContext
-
 }
  const test = base.extend <MyFixture> ({
     

@@ -1,13 +1,13 @@
 
 import { test } from '../src/fixtures/base_fixture';
-test.skip('Double Click', async ({ elementsPage}) => {
+test('Double Click', async ({ elementsPage}) => {
   await elementsPage.performDoubleClick();
 
 });
-test.skip('Right Click', async ({ elementsPage }) => {
+test('Right Click', async ({ elementsPage }) => {
   await elementsPage.performRightClick();
 });
-test.skip('Click Me Test', async ({ clickMe}) => {
+test('Click Me Test', async ({ clickMe}) => {
   const subCategoryText = 'Buttons';
   const buttonText = 'lastBtn';     
 

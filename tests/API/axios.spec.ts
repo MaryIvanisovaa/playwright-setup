@@ -3,7 +3,7 @@ import { wrapper } from 'axios-cookiejar-support';
 import test, { expect } from 'playwright/test';
 import { CookieJar } from 'tough-cookie';
 
-test.describe.only('Mocking response', async () => {
+test.describe('Mocking response', async () => {
      let client: Axios;
      let userID: string;
      let token: string;
@@ -21,13 +21,13 @@ test.describe.only('Mocking response', async () => {
     }));
 
     const loginData = await client.post('Account/v1/Login', {
-      "userName": "MaryI",
-      "password": "Test123!"
+      "userName": process.env.USER_NAME,
+      "password": process.env.PASSWORD
     });
     userID = loginData.data.userId
     token = loginData.data.token
-    console.log(loginData.data.userId);
-    console.log(loginData.data.token);
+    // console.log(loginData.data.userId);
+    // console.log(loginData.data.token);
   
     client.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
@@ -42,8 +42,7 @@ test.describe.only('Mocking response', async () => {
         }
       ]
     });
-  
-    console.log(response);
+
     expect(response.status).toBeGreaterThanOrEqual(200);
 
 
@@ -56,30 +55,7 @@ test.describe.only('Mocking response', async () => {
           "userId": userID
         }
         });
-
-        console.log(responseDelete);
         expect(responseDelete.status).toBeGreaterThanOrEqual(200);
     })
     
       });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
