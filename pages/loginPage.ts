@@ -23,7 +23,7 @@ export class LoginPage {
     return await this.page.locator(`text=${text}`);
   }
 
-  async login(): Promise<void> {
+  async performLogin(): Promise<void> {
     await (await this.page.locator(this.loginField)).click();
     await (await this.page.locator(this.loginField)).fill(this.userName);
     await (await this.page.locator(this.passwordField)).click();

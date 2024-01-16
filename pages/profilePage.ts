@@ -9,7 +9,7 @@ export class ProfilePage  {
     this.page = page;
   }
 
-  async navigateToBookStorePage(): Promise<void> {
+  async navigateProfilePage(): Promise<void> {
     await this.page.goto('/profile');
   }
 

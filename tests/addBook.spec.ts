@@ -2,9 +2,9 @@ import {test} from '../src/fixtures/base_fixture'
 
 test( 'Book Store', async ({login, bookStorePage, profilePage})=>{
 await login.navigateToPage();
-await login.login();
+await login.performLogin();
 await bookStorePage.navigateToBookStorePage();
 await bookStorePage.searchBook();
-await profilePage.navigateToBookStorePage();
+await profilePage.navigateProfilePage();
 await profilePage.checkAddedBook();
 })
